@@ -1,6 +1,7 @@
 class Website < ApplicationRecord
 
   STATUS = ['PENDING', 'UNDER-PROCESS', 'FAILED', 'COMPLETED']
+  TAGS   = ["h1","h2","h3","a"]
 
   validates :domain, presence: true,
                      uniqueness: true,
@@ -9,7 +10,7 @@ class Website < ApplicationRecord
                       message: 'Not a valid URL format'}
   validates :status, presence: true
 
-  after_validation do
-    self.key = URI.parse(domain).host
+  before_create do
+    self.key = Digest::MD5.hexdigest("#{self.domain}-#{Date.current}")
   end
 end
