@@ -25,7 +25,7 @@ curl -X POST "http://localhost:3000/v1/websites?domain=https://simple.wikipedia.
 
 ```json
 {"result":{"domain":"https://simple.wikipedia.org/wiki/Wikipedia","status":"PENDING","result_url":"http://localhost:3000/v1/website/389b76561f52f5f0337742b68354c106"}}
-``
+```
 
 **Fetch Result**
 
