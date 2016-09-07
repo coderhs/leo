@@ -35,6 +35,7 @@ group :development do
   gem 'better_errors'
   gem 'letter_opener'
   gem 'bullet'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
