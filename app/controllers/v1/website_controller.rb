@@ -2,6 +2,7 @@ class V1::WebsiteController < V1::BaseController
   def create
     @website = Website.new(website_params)
     if @website.save
+      ScraperJob.perform_later(@website)
       render 'create'
     else
       render json: {error: @website.errors.full_messages.to_sentence}, status: 500
@@ -9,7 +10,7 @@ class V1::WebsiteController < V1::BaseController
   end
 
   def show
-    @website = Website.where(key: domain_name).first!
+    @website = Website.where(key: params[:key]).first!
   end
 
   def index
@@ -20,9 +21,5 @@ class V1::WebsiteController < V1::BaseController
 
   def website_params
     params.permit(:domain)
-  end
-
-  def domain_name
-    "#{params[:domain_name]}.#{params[:format]}"
   end
 end
