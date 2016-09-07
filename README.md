@@ -34,16 +34,37 @@ curl -X POST "http://localhost:3000/v1/websites?domain=https://simple.wikipedia.
 curl http://localhost:3000/v1/websites/389b76561f52f5f0337742b68354c106
 ```
 
-```
+Result:
 https://gist.github.com/coderhs/9d84b96875fa996a7a80195cbe96425f
+
+***Display all Website***
+
+```sh
+curl http://localhost:3000/v1/websites
 ```
 
-***Display Website***
+```json
+[
+  {
+    domain: "http://csnipp.com",
+    status: "COMPLETED",
+    result_url: "http://localhost:3000/v1/websites/3bae0b276b4c475c1e6bd43f2266b80e"
+  },
+  {
+    domain: "https://redpanthers.co",
+    status: "COMPLETED",
+    result_url: "http://localhost:3000/v1/websites/e14dd438487e385054747f1091e86a2e"
+  },
+  {
+    domain: "https://simple.wikipedia.org/wiki/Wikipedia",
+    status: "COMPLETED",
+    result_url: "http://localhost:3000/v1/websites/389b76561f52f5f0337742b68354c106"
+  }
+]
 
 
 
-## Possible Modification:
+## ToDO:
 
-Priority Queue: Presently all the scraping is done through a single queue, we can modify it to have it
-submitted to a priority queue based on the urgency of the job.
+Implement Priority Queue: Presently all the scraping is done through a single queue. Which is not good when a lot of users are using our website. So we need to create a priority queue system where we can let people submit to another queue if they need something quick.
 
