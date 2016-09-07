@@ -130,9 +130,14 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uniform_notifier (1.10.0)
+    versionist (1.5.0)
+      activesupport (>= 3)
+      railties (>= 3)
+      yard (~> 0.7)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    yard (0.9.5)
 
 PLATFORMS
   ruby
@@ -150,6 +155,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  versionist
 
 BUNDLED WITH
    1.12.5
