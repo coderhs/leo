@@ -1,4 +1,4 @@
-class V1::WebsiteController < V1::BaseController
+class V1::WebsitesController < V1::BaseController
   def create
     @website = Website.new(website_params)
     if @website.save
@@ -14,7 +14,7 @@ class V1::WebsiteController < V1::BaseController
   end
 
   def index
-
+    @websites = Website.timeline
   end
 
   private

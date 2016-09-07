@@ -10,6 +10,8 @@ class Website < ApplicationRecord
                       message: 'Not a valid URL format'}
   validates :status, presence: true
 
+  scope :timeline, -> {order(created_at: :desc)}
+
   before_create do
     self.key = Digest::MD5.hexdigest("#{self.domain}-#{Date.current}")
   end
